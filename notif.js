@@ -11,7 +11,6 @@ admin.initializeApp({
 route.get("/", async (req, res) => {
     // console.log("notif body = ", req.body);
 
-    res.send('notif')
     try {
 
         var data = admin.firestore()
@@ -39,6 +38,11 @@ route.get("/", async (req, res) => {
                         )
                         .then((resp) => {
                             console.log(resp);
+                            if (resp.responses[0].success) {
+                                res.send('notif')
+                            } else {
+                                res.send('failed')
+                            }
                         })
                 }
             })
