@@ -8,8 +8,8 @@ admin.initializeApp({
     credential: admin.credential.cert(serviceAccount)
 })
 
-route.get("/:id", async (req, res) => {
-    // console.log("notif body = ", req.body);
+route.post("/:id", async (req, res) => {
+    console.log("notif body ============= ", req.body);
     // console.log('notif param = ', req.params.id);
 
     try {
