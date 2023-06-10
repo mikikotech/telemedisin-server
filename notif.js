@@ -9,8 +9,6 @@ admin.initializeApp({
 })
 
 route.post("/:id", async (req, res) => {
-    console.log("notif body ============= ", req.body);
-    // console.log('notif param = ', req.params.id);
 
     try {
 
@@ -41,14 +39,14 @@ route.post("/:id", async (req, res) => {
                                         tokens: fcm_token,
                                         notification: {
                                             title: 'Urgent Notification',
-                                            body: `${req.body.data == 'temp' ? 'Body Temperature' : req.body.data == 'oxygen' ? 'Oxygen Saturation' : req.body.data == 'blood' ? 'Blood Pressure' : 'Heart Rate'} ${req.body.condition == '>' ? 'Above' : 'Below'} ${req.body.value} ${req.body.data == 'temp' ? 'C' : req.body.data == 'oxygen' ? '%' : req.body.data == 'blood' ? 'mmHg' : 'bpm'}`
+                                            body: `${req.body.data == 'temp' ? 'Body Temperature' : req.body.data == 'oxygen' ? 'Oxygen Saturation' : req.body.data == 'blood' ? 'Blood Pressure' : 'Heart Rate'} ${req.body.condition == '>' ? 'Above' : 'Below'} ${req.body.value} ${req.body.data == 'temp' ? '°C' : req.body.data == 'oxygen' ? '%' : req.body.data == 'blood' ? 'mmHg' : 'bpm'}`
                                         }
                                     }
                                 )
                                 .then((resp) => {
                                     console.log(resp);
                                     if (resp.responses[0].success) {
-                                        res.send('notif')
+                                        res.send('notif send')
                                     } else {
                                         res.send('failed')
                                     }
