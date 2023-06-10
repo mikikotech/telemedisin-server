@@ -13,8 +13,8 @@ app.use(cors());
 app.use("/notif", notifRoute);
 
 app.get("/", (req, res) => {
-    console.log("mikiko");
-    res.send("welcome to mikiko");
+    console.log("wecare");
+    res.send("welcome to we care");
 });
 
 const port = process.env.PORT || 3000;
