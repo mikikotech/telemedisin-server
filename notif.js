@@ -39,7 +39,7 @@ route.post("/:id", async (req, res) => {
                                         tokens: fcm_token,
                                         notification: {
                                             title: 'Urgent Notification',
-                                            body: `UpNormal Condition, Patient ${req.body.data == 'temp' ? 'Body Temperature' : req.body.data == 'oxygen' ? 'Oxygen Saturation' : req.body.data == 'blood' ? 'Blood Pressure' : 'Heart Rate'} is ${req.body.value} ${req.body.data == 'temp' ? '°C' : req.body.data == 'oxygen' ? '%' : req.body.data == 'blood' ? 'mmHg' : 'bpm'}`
+                                            body: `Abnormal Condition, Patient ${req.body.data == 'temp' ? 'Body Temperature' : req.body.data == 'oxygen' ? 'Oxygen Saturation' : req.body.data == 'blood' ? 'Blood Pressure' : 'Heart Rate'} is ${req.body.value} ${req.body.data == 'temp' ? '°C' : req.body.data == 'oxygen' ? '%' : req.body.data == 'blood' ? 'mmHg' : 'bpm'}`
                                         }
                                     }
                                 )
